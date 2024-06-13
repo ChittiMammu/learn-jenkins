@@ -33,19 +33,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
-    post {
-        always {
-            echo 'I will always run whether job is success or not'
-        }
-        success{
-            echo 'I will run only when job is success'
-        }
-        failure{
-            echo 'I will run when failure'
-        }
-    }
-    stage ("print params") {
+        stage("print params") {
             steps {
                 echo "Hello ${params.PERSON}"
 
@@ -58,6 +46,21 @@ pipeline {
                 echo "Password: ${params.PASSWORD}"
         }
     }
+
+
+    }
+    post {
+        always {
+            echo 'I will always run whether job is success or not'
+        }
+        success{
+            echo 'I will run only when job is success'
+        }
+        failure{
+            echo 'I will run when failure'
+        }
+    }
+    
 }
 
 
